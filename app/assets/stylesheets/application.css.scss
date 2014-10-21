@@ -3,6 +3,12 @@
 /*$brand-primary : red;*/
 @import 'bootstrap';
 
+@import url(http://fonts.googleapis.com/css?family=Lobster+Two:400,700);
+
+.jumbotron h1, .navbar-brand {
+  font-family: 'Lobster Two', cursive;
+}
+
 @import 'bootstrap.min';
 .images {
   img {
