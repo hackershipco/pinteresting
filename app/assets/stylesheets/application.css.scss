@@ -1,0 +1,18 @@
+/*$grid-columns : 6;*/
+/*$container-desktop : 500px;*/
+/*$brand-primary : red;*/
+@import 'bootstrap';
+
+@import 'bootstrap.min';
+.images {
+  img {
+    width: 100%;
+  }
+  .image2, .image3 {
+    display: none;
+  }
+}
+.botones {
+  margin-top: 2em;
+  text-align: center;
+}

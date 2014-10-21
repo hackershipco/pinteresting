@@ -14,3 +14,45 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var slides, slides_total, slide_current;
+
+function changePicture (slide) {
+  for(var i = 0; i < slides_total; i++){
+    slides[i].style.display = 'none';
+  }
+  slides[slide].style.display = 'block';
+
+};
+
+document.addEventListener('DOMContentLoaded', function(){
+  slides = document.getElementsByClassName('col-sm-12');
+  slides_total = slides.length;
+  slide_current = 0;
+  changePicture(slide_current);
+  window.setInterval(function () {
+    if(slide_current >= (  slides_total - 1 ) ) {
+      slide_current = 0;
+    }else {
+      slide_current++;
+    }
+    changePicture(slide_current);
+    console.log(slide_current);
+  }, 3000);
+
+
+    // First we get the element with class .prev, we want to add an event listener
+    // to that element so we can perform a function every time teh element is clicked
+    document.getElementsByClassName('prev')[0].addEventListener('click', function () {
+      // the idea is to decrease slide_current by one, to show the previous image
+      if(slide_current > 0){
+        slide_current--;
+      }else{
+        // if the slide_current is less than 0 we want to move to the last image
+        slide_current = (slides_total - 1);
+      }
+      // then we call the function that changes the current image we had previously coded
+      changePicture(slide_current);
+    });
+
+});
