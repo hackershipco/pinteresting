@@ -1,4 +1,19 @@
-<div class="container">
+<div class="jumbotron">
+  <h1>Welcome!</h1>
+  <p>Hackership's sample Rails application.</p>
+  <div class="">
+   <% if user_signed_in? %>
+   # do something
+   <% else %>
+   <p>
+    <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-lg pull-left" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg pull-right" %>
+  </p>
+  <div class="clearfix"></div>
+  <% end %>
+</div>
+</div>
+<!-- <div class="container">
   <div class="row images">
     <div class="col-sm-12 image1">
       <img src="http://placekitten.com/700/300" alt="">
@@ -19,4 +34,4 @@
       <button class="next btn btn-success"> > </button>
     </div>
   </div>
-</div>
+</div> -->

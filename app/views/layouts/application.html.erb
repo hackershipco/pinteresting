@@ -27,7 +27,11 @@
         <li class="active"><a href="#">Link</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Zelda</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Log in", new_user_session_path %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -35,7 +39,7 @@
 
 <div class="container">
   <% flash.each do |name, msg|%>
-    <%= content_tag(:div , msg, class: "alert alert-#{name}" )%>
+    <%= content_tag(:div , msg, class: "alert alert-info" )%>
   <% end %>
   <%= yield %>
 </div>
