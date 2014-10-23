@@ -1,6 +1,7 @@
 class PinsController < ApplicationController
   before_action :set_pin, only: [:show, :edit, :update, :destroy]
   respond_to :html, :xml, :json
+  # http://blog.plataformatec.com.br/2009/08/embracing-rest-with-mind-body-and-soul/
 
   def index
     @pins = Pin.all
