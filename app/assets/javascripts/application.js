@@ -56,3 +56,27 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
 });
+
+
+function david () {
+    var xmlhttp;
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      console.log(xmlhttp.readyState);
+        if (xmlhttp.readyState == 4 ) {
+           if(xmlhttp.status == 200){
+               document.getElementById("response").innerHTML = xmlhttp.responseText;
+           }
+           else if(xmlhttp.status == 400) {
+              alert('There was an error 400');
+           }
+           else {
+               alert('something else other than 200 was returned');
+           }
+        }
+    }
+    xmlhttp.open("GET", "/pages/ajax", true);
+    xmlhttp.send();
+}
+
+$.get('/pages/ajax');
